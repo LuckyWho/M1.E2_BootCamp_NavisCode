@@ -10,13 +10,13 @@ console.log(cuadrado(10))
 
 //Ejercicio 3
 
-areaRectangulo = (val1,val2) => val1 * val2;
+areaRectangulo = (base,altura) => base * altura;
 console.log('El área del cuadrado es: ' + areaRectangulo(43,20))
 
 // Ejercicio 4
 
 parImpar = num => {
-    if (num % 2 == 0) {
+    if (num % 2 === 0) {
         console.log('El número es par')
     } else {
         console.log('El numero es impar')
@@ -41,12 +41,51 @@ const personas = [
 ];
 
 //Apuntes de js
-personas.forEach(elemento =>{
-    if (elemento.edad >= 18) {
-        console.log(elemento.nombre + ' es mayor de edad')
+// personas.forEach(elemento =>{
+//     if (elemento.edad >= 18) {
+//         console.log(elemento.nombre + ' es mayor de edad')
+//     }
+// })
+// function personasMayores(personas){
+//     const mayores = []
+//     if(personas.edad >= 18){
+//         mayores.push(personas.nombre)
+//     }
+//     return mayores
+// }
+// console.log(personasMayores(personas))
+//CORREGIDO
+function mayoresDeEdad(personas) {
+    const mayores = [];
+    for (let i = 0; i < personas.length; i++) {
+      if (personas[i].edad >= 18) {
+        mayores.push(personas[i]);
+      }
     }
-})
+    return mayores;
+  }
+  console.log(mayoresDeEdad(personas));
 
+  function masJoven(personas) {
+    let masJoven = personas[0];
+    for (let i = 1; i < personas.length; i++) {
+      if (personas[i].edad < masJoven.edad) {
+        masJoven = personas[i];
+      }
+    }
+    return masJoven;
+  }
+  console.log(masJoven(personas))
+  function masMayor(personas) {
+    let masMayor = personas[0];
+    for (let i = 1; i < personas.length; i++) {
+      if (personas[i].edad > masMayor.edad) {
+        masMayor = personas[i];
+      }
+    }
+    return masMayor;
+  }
+  console.log(masMayor(personas))
 // mayoresDeEdad = persona => {
 //     if (persona.edad >= 18) {
 //         console.log(persona.nombre + ' es mayor de de edad')
